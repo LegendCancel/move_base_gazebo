@@ -4,6 +4,20 @@
 
     <xacro:include filename="$(find urdf_learn_gazebo)/urdf/macros.xacro" />
     
+    <xacro:include filename="$(find urdf_learn_gazebo)/velodyne_description/urdf/VLP-16.urdf.xacro" />
+
+    <joint name="lidar_joint" type="fixed">
+      <origin xyz="0.093603 0 0.12377" />
+      <axis xyz="0 0 1" />
+      <parent link="base_link"/>
+      <child link="velodyne_base_link"/>
+    </joint>
+
+    <xacro:VLP-16/>
+
+    <robot_base_gazebo/> 
+
+
     <link name="base_footprint">
     </link>
 
@@ -340,7 +354,7 @@
 
 
 
-    <link name="lidar">
+    <!-- <link name="lidar">
         <visual>
             <geometry>
                 <cylinder radius="0.03" length="0.06" />
@@ -368,9 +382,9 @@
         <child link="lidar" />
         <origin xyz="0.093603 0 0.12377" />
         <axis xyz="0 0 1" />
-    </joint>
+    </joint> -->
 
-    <link name="imu">
+    <!-- <link name="imu">
         <visual>
             <geometry>
                 <box size="0.01 0.01 0.005"/>
@@ -398,7 +412,7 @@
         <child link="imu" />
         <origin xyz="0 0 0.02" />
         <axis xyz="0 0 1" />
-    </joint>
+    </joint> -->
 
   <xacro:include filename="$(find urdf_learn_gazebo)/urdf/racecar.gazebo" />
 

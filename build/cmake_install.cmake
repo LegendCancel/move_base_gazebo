@@ -131,8 +131,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/lc/urdf_ws/build/gtest/cmake_install.cmake")
+  include("/home/lc/urdf_ws/build/velodyne_simulator/velodyne_description/cmake_install.cmake")
+  include("/home/lc/urdf_ws/build/velodyne_simulator/velodyne_simulator/cmake_install.cmake")
   include("/home/lc/urdf_ws/build/racebot_control/cmake_install.cmake")
   include("/home/lc/urdf_ws/build/urdf_learn_gazebo/cmake_install.cmake")
+  include("/home/lc/urdf_ws/build/velodyne_simulator/velodyne_gazebo_plugins/cmake_install.cmake")
 
 endif()
 

@@ -1,0 +1,24 @@
+<launch>
+
+    <!-- 启动仿真环境 -->
+    <include file="$(find urdf_learn_gazebo)/launch/env.launch"/>
+
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="room_mini.yaml" />
+
+    <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 /base_link /lidar 100"/>
+    <!-- 运行地图服务器，并且加载设置的地图-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find urdf_learn_gazebo)/map/$(arg map)"/>
+
+
+    <!-- 启动AMCL节点 -->
+    <include file="$(find urdf_learn_gazebo)/launch/amcl.launch" />
+    
+    <!-- 运行move_base节点 -->
+    <include file="$(find urdf_learn_gazebo)/launch/move_base.launch"/>
+
+    <!-- 运行rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find urdf_learn_gazebo)/rviz/demo.rviz" />
+
+</launch>
+

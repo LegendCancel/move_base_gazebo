@@ -20,5 +20,9 @@
 
   <!-- servo node -->
   <node pkg="racebot_control" type="servo_commands.py" name="servo_commands" output="screen"/>
+  <!-- transform node -->
+  <node pkg="racebot_control" type="transform.py" name="transform" output="screen"/>
+  <!-- Allow for Gazebo to broadcast odom -->
+  <node pkg="racebot_control" type="gazebo_odometry.py" name="gazebo_odometry_node" /> 
 
 </launch>
